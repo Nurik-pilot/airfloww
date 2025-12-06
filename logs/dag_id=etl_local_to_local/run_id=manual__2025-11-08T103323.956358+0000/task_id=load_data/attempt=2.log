@@ -1,0 +1,25 @@
+[2025-11-08T10:34:39.216+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_local_to_local.load_data manual__2025-11-08T10:33:23.956358+00:00 [queued]>
+[2025-11-08T10:34:39.236+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_local_to_local.load_data manual__2025-11-08T10:33:23.956358+00:00 [queued]>
+[2025-11-08T10:34:39.238+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 3
+[2025-11-08T10:34:39.677+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): load_data> on 2025-11-08 10:33:23.956358+00:00
+[2025-11-08T10:34:39.725+0000] {standard_task_runner.py:60} INFO - Started process 548 to run task
+[2025-11-08T10:34:39.737+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_local_to_local', 'load_data', 'manual__2025-11-08T10:33:23.956358+00:00', '--job-id', '154', '--raw', '--subdir', 'DAGS_FOLDER/etl_local_to_local_dag.py', '--cfg-path', '/tmp/tmpdm2w0nzz']
+[2025-11-08T10:34:39.741+0000] {standard_task_runner.py:88} INFO - Job 154: Subtask load_data
+[2025-11-08T10:34:39.875+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_local_to_local.load_data manual__2025-11-08T10:33:23.956358+00:00 [running]> on host d645b8fda796
+[2025-11-08T10:34:40.051+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_local_to_local' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-08T10:33:23.956358+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-08T10:33:23.956358+00:00'
+[2025-11-08T10:34:40.054+0000] {logging_mixin.py:188} INFO - 📦 Запуск load_data
+[2025-11-08T10:34:40.060+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_local_to_local_dag.py", line 54, in load_data
+    print(f"📊 Обработано {len(products)} строк на дату запуска DAG: {execution_date.strftime('%Y-%m-%d')}")
+NameError: name 'execution_date' is not defined
+[2025-11-08T10:34:40.085+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_local_to_local, task_id=load_data, execution_date=20251108T103323, start_date=20251108T103439, end_date=20251108T103440
+[2025-11-08T10:34:40.111+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 154 for task load_data (name 'execution_date' is not defined; 548)
+[2025-11-08T10:34:40.154+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-11-08T10:34:40.195+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

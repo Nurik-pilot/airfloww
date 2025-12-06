@@ -1,0 +1,7 @@
+[2025-11-07T13:21:02.893+0000] {processor.py:161} INFO - Started process (PID=69) to work on /opt/airflow/dags/etl_local_to_local_dag.py
+[2025-11-07T13:21:02.898+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/etl_local_to_local_dag.py for tasks to queue
+[2025-11-07T13:21:02.912+0000] {logging_mixin.py:188} INFO - [2025-11-07T13:21:02.911+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/etl_local_to_local_dag.py
+[2025-11-07T13:21:03.028+0000] {processor.py:840} INFO - DAG(s) 'etl_local_to_local' retrieved from /opt/airflow/dags/etl_local_to_local_dag.py
+[2025-11-07T13:21:03.258+0000] {logging_mixin.py:188} INFO - [2025-11-07T13:21:03.258+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-11-07T13:21:03.517+0000] {logging_mixin.py:188} INFO - [2025-11-07T13:21:03.505+0000] {dag.py:3823} INFO - Setting next_dagrun for etl_local_to_local to 2025-11-07 05:00:00+00:00, run_after=2025-11-10 05:00:00+00:00
+[2025-11-07T13:21:03.648+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/etl_local_to_local_dag.py took 0.780 seconds

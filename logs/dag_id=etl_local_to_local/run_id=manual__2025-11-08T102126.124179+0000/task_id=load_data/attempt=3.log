@@ -1,0 +1,24 @@
+[2025-11-08T10:23:38.589+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_local_to_local.load_data manual__2025-11-08T10:21:26.124179+00:00 [queued]>
+[2025-11-08T10:23:38.615+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_local_to_local.load_data manual__2025-11-08T10:21:26.124179+00:00 [queued]>
+[2025-11-08T10:23:38.616+0000] {taskinstance.py:2170} INFO - Starting attempt 3 of 3
+[2025-11-08T10:23:38.654+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): load_data> on 2025-11-08 10:21:26.124179+00:00
+[2025-11-08T10:23:38.664+0000] {standard_task_runner.py:60} INFO - Started process 387 to run task
+[2025-11-08T10:23:38.677+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_local_to_local', 'load_data', 'manual__2025-11-08T10:21:26.124179+00:00', '--job-id', '150', '--raw', '--subdir', 'DAGS_FOLDER/etl_local_to_local_dag.py', '--cfg-path', '/tmp/tmpfn2nioac']
+[2025-11-08T10:23:38.681+0000] {standard_task_runner.py:88} INFO - Job 150: Subtask load_data
+[2025-11-08T10:23:38.839+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_local_to_local.load_data manual__2025-11-08T10:21:26.124179+00:00 [running]> on host d645b8fda796
+[2025-11-08T10:23:39.116+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_local_to_local' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-08T10:21:26.124179+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-08T10:21:26.124179+00:00'
+[2025-11-08T10:23:39.119+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 197, in execute
+    self.op_kwargs = self.determine_kwargs(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 208, in determine_kwargs
+    return KeywordParameters.determine(self.python_callable, self.op_args, context).unpacking()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/operator_helpers.py", line 163, in determine
+    raise ValueError(f"The key {name!r} in args is a part of kwargs and therefore reserved.")
+ValueError: The key 'execution_date' in args is a part of kwargs and therefore reserved.
+[2025-11-08T10:23:39.150+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=etl_local_to_local, task_id=load_data, execution_date=20251108T102126, start_date=20251108T102338, end_date=20251108T102339
+[2025-11-08T10:23:39.183+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 150 for task load_data (The key 'execution_date' in args is a part of kwargs and therefore reserved.; 387)
+[2025-11-08T10:23:39.258+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-11-08T10:23:39.312+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,25 @@
+[2025-11-06T15:02:48.968+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_local_to_local.extract_raw_data manual__2025-11-06T15:02:44.349156+00:00 [queued]>
+[2025-11-06T15:02:49.035+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_local_to_local.extract_raw_data manual__2025-11-06T15:02:44.349156+00:00 [queued]>
+[2025-11-06T15:02:49.037+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2025-11-06T15:02:49.140+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_raw_data> on 2025-11-06 15:02:44.349156+00:00
+[2025-11-06T15:02:49.193+0000] {standard_task_runner.py:60} INFO - Started process 684 to run task
+[2025-11-06T15:02:49.233+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_local_to_local', 'extract_raw_data', 'manual__2025-11-06T15:02:44.349156+00:00', '--job-id', '57', '--raw', '--subdir', 'DAGS_FOLDER/etl_local_to_local_dag.py', '--cfg-path', '/tmp/tmpspi0h5jj']
+[2025-11-06T15:02:49.247+0000] {standard_task_runner.py:88} INFO - Job 57: Subtask extract_raw_data
+[2025-11-06T15:02:49.552+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_local_to_local.extract_raw_data manual__2025-11-06T15:02:44.349156+00:00 [running]> on host d25337941746
+[2025-11-06T15:02:49.952+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_local_to_local' AIRFLOW_CTX_TASK_ID='extract_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-06T15:02:44.349156+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-06T15:02:44.349156+00:00'
+[2025-11-06T15:02:49.958+0000] {logging_mixin.py:188} INFO - 🔍 Запуск extract_raw_data
+[2025-11-06T15:02:49.962+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_local_to_local_dag.py", line 18, in extract_raw_data
+    raise FileNotFoundError(f"Файл не найден: {RAW_FILE}")
+FileNotFoundError: Файл не найден: C:\Users\PCHelper\Desktop\***_hw2/raw_products.json
+[2025-11-06T15:02:50.037+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_local_to_local, task_id=extract_raw_data, execution_date=20251106T150244, start_date=20251106T150248, end_date=20251106T150250
+[2025-11-06T15:02:50.166+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 57 for task extract_raw_data (Файл не найден: C:\Users\PCHelper\Desktop\***_hw2/raw_products.json; 684)
+[2025-11-06T15:02:50.225+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-11-06T15:02:50.350+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
